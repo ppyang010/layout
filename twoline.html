@@ -15,40 +15,47 @@ body {
 	line-height:18px;
 	text-align:center;
 }
+ .header {
+	width:100%;
+	position: fixed;
+	height:50px;
+	background:#39c;
+	margin-bottom: 30px;
+	z-index: 9999;
+}
+
 .body {
 	width:100%;
 	height:2000px;
 	margin:0 auto;
 	background:#f2f2f2; 
 	position: relative;
-	top: 55px;
+	top: 85px;
 	display: flex;	
+	flex: 1;
+	justify-content:center;
+	
 } 
- .header {
-	width:100%;
-	position: fixed;
-	height:50px;
-	background:#39c;
-	z-index: 9999;
-}
 
 .side {
-	width:30%;
+	/*width:300px;*/
 	height:400px;
 	background:#fff;
-	float: right;
-	display: inline-block;
+	flex: 0 1 300px; 
+	/*第二个参数表示浏览器宽度不足时 被隐藏的部分的分配比例 优先分配侧边栏*/
 
 }
 .main {
 	margin-right:30px;
-	margin-top:20px;
 	background:#fff;
 	margin-left:40px;
 	height:400px;
-	width: 60%;
-	display: inline-block;
-	float: right;
+	flex: 0 0 800px;
+}
+.left{
+	flex: 1 1em;
+	background:red;
+	height:400px;
 }
 /*
 .mrc {
@@ -74,16 +81,16 @@ p {
 <body>
 <div class="header"><span style="color:#fff; font-size:14px;font-weight:bold; line-height:28px;">头部自适Div</span></div>
 <div class="body">
-	<div class="side">
-    <p>绝对固宽定位的右侧栏>
-  </div>
-  <div class="main">
+	
+ 	 <div class="main">
     <p>左则自适应缩放</p>
     <div class="mrc">
       <p>内容区块,相对父元素按百分比适应</p>
     </div>
   </div>
-
+  <div class="side">
+    <p>绝对固宽定位的右侧栏>
+  </div>
 
 </div>
   <div class="footer">
