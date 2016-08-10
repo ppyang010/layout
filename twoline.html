@@ -25,15 +25,16 @@ body {
 }
 
 .body {
-	width:100%;
+width:1170px;
 	height:2000px;
-	margin:0 auto;
+	margin:0 auto;/*根据body宽度平分margin居中*/
 	background:#f2f2f2; 
 	position: relative;
 	top: 85px;
 	display: flex;	
 	flex: 1;
-	justify-content:center;
+	/* justify-content:center;
+	 *//*在body的内容中 将灵活项（flex子项）居中*/
 	
 } 
 
@@ -57,17 +58,19 @@ body {
 	background:red;
 	height:400px;
 }
-/*
 .mrc {
 	width:96%;
 	height:300px;
 	margin:0 auto;
 	background:#444;
 }
-.footer {
+
+footer {
 	width:100%;
 	height:100px;
-	background:#f2f2f2;
+	background:red;
+	position: relative;
+	top: 100px;
 }
 p {
 	padding:10px 10px;
@@ -75,11 +78,11 @@ p {
 	font-weight:bold;
 	color:#39C;
 	line-height:22px;
-} */
+}
 </style>
 </head>
 <body>
-<div class="header"><span style="color:#fff; font-size:14px;font-weight:bold; line-height:28px;">头部自适Div</span></div>
+<header class="header"><span style="color:#fff; font-size:14px;font-weight:bold; line-height:28px;">头部自适Div</span></header>
 <div class="body">
 	
  	 <div class="main">
@@ -93,8 +96,8 @@ p {
   </div>
 
 </div>
-  <div class="footer">
+  <footer class="footer">
     <p>底部自适应</p>
-  </div>
+  </footer>
 </body>
 </html>
