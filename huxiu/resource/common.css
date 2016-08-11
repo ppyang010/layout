@@ -108,26 +108,91 @@ header>.container li>a:hover{
 	position: relative;
 	top: 75px;
 }
-
+/* side start*/
 .side {
 	/*width:300px;*/
-	height:400px;
-	background:blue;
+	/* height:400px; */
+	/* background:blue; */
 	flex: 0 1 340px; 
 	/*第二个参数表示浏览器宽度不足时 被隐藏的部分的分配比例 优先分配侧边栏*/
 
 }
+/* 短趣start */
+.side .side-box{
+	background: #fafafa;
+}
+.side .side-box h3{
+	text-align: left;
+	height: 60px;
+}
+.side .side-box h3 b{
+	font-size: 20px;
+	font-weight: 400;
+	padding: 30px 30px 0px 30px;
+	display: inline-block;
+	margin: 0;
+}
+.side .side-box .side-box-warp{
+	height: 500px;
+	overflow: scroll;
+	overflow-x:hidden;
+}
+
+.side .side-box .side-box-more{
+	line-height: 20px;
+	padding: 0 0 10px 0;
+	text-align: center;
+	color: #bbb;
+	font-size: 14px;
+	box-sizing:border-box;
+
+}
+.side .side-box li{
+	padding: 0 10px 10px 10px;
+	border-bottom: 1px solid #f0f0f0;
+
+}
+
+
+.story-content .story-title .title{
+	font-size: 16px;
+	line-height: 28px;
+	color: #333;
+	padding: 10px 50px 9px 20px;
+	text-align: left;	
+	position: relative;
+	cursor: pointer;
+}
+.story-content .story-title .title:hover{
+	color: #3ca5f6;
+}
+.story-content .story-title .title:hover .icon-caret{
+	background-position: -181px -721px;
+}
+
+.story-content .story-time p{
+	padding: 0 20px 5px 20px;
+	text-align: left;
+	color: #bbb;
+	font-size: 14px;
+	line-height: 39px;
+
+}
+/* 短趣end */
+/*side end*/
+
+/* main start*/
 .main {
 	margin-right:30px;
 	background:#fff;
 	height:400px;
 	flex: 0 0 800px;
 }
-.main .big-pic-box{
+ .big-pic-box{
 	height: 300px;
 	position: relative;
 }
-.main .big-pic-box .big-pic{
+ .big-pic-box .big-pic{
 	height: 300px;
 	position: absolute;
 	width: 533px;
@@ -135,7 +200,7 @@ header>.container li>a:hover{
 	top:0px;
 	left: 0px;
 }
-.main .big-pic-box .big2-pic-top{
+ .big-pic-box .big2-pic-top{
 	width: 257px;
 	height: 145px;
 	display: inline-block;
@@ -143,11 +208,11 @@ header>.container li>a:hover{
 	top:0px;
 	right: 0px;
 }
-.main .big-pic-box .big2-pic-top img,.main .big-pic-box .big2-pic-bottom img{
+ .big-pic-box .big2-pic-top img, .big-pic-box .big2-pic-bottom img{
 	width: 257px;
 	height: 145px;
 }
-.main .big-pic-box .big2-pic-bottom{
+ .big-pic-box .big2-pic-bottom{
 	width: 257px;
 	height: 145px;
 	position: absolute;
@@ -161,7 +226,8 @@ header>.container li>a:hover{
 	height:400px;
 } */
 
-.main .mod-info{
+/*mod-info start*/
+ .mod-info{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -171,7 +237,7 @@ header>.container li>a:hover{
 	border-bottom: 1px solid rgb(240,240,240);
 	position: relative;
 }
-.main .mod-info .mod-info-img{
+ .mod-info .mod-info-img{
 	width: 220px;
 	height: 124px;
 	position: absolute;
@@ -179,15 +245,16 @@ header>.container li>a:hover{
 	overflow: hidden;	
 }
 
-.main .mod-info .mod-info-art{
+ .mod-info .mod-info-art{
 	position: relative;
 	float:right;
 	overflow: hidden;	
 	width: 520px;
 	height: 125px;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
+	margin-right: 30px;
 }
-.main .mod-info .mod-info-art h3{
+ .mod-info .mod-info-art h3{
 	text-align: left;
 	width: 520px;
 	font-size:18px;
@@ -195,13 +262,68 @@ header>.container li>a:hover{
 	font-weight:500;
 
 }
-
-.main .mod-info .mod-info-art h3>a{
+ .mod-info .mod-info-art h3>a{
 	color: black;
 	text-decoration: none;
 }
+ .mod-info .mod-info-art .mod-author{
+	text-align: left;
+	font-size: 14px;
+	line-height: 24px;
+	height: 25px;
+	font-style: normal;
+	margin: 10px 0px 15px 0px;
 
+}
+ .mod-info .mod-info-art .mod-author .author-face{
+	display: inline-block;
+ 	vertical-align: middle;
 
+}
+ .mod-info .mod-info-art .mod-author .author-face img{
+	width: 25px;
+	height: 25px;
+	
+}
+ .mod-info .mod-info-art .mod-author a,.mod-info .mod-info-art .mod-author em ,.mod-info .mod-info-art .mod-author i,.mod-info .mod-info-art .mod-author span{
+ 	text-decoration: none;
+ 	color: rgb(153,153,153);
+ 	font-style: normal;
+ }
+  .mod-info .mod-info-art .mod-author a:hover{
+ 	text-decoration: none;
+ 	color: #3CA5F7;
+ }
+ .mod-info .mod-info-art .mod-author .author-name{
+ 	margin-left: 11px;
+ }
+ .mod-info .mod-info-art .mod-author .time{
+ 	margin-left: 20px;
+ }
+
+.mod-info .mod-info-art .mod-sub{
+	line-height: 24px;
+	font-size: 14px;
+	color: rgb(153,153,153);
+	text-align: left;
+} 
+ .mod-info .info-link{
+ 	position: absolute;
+ 	bottom: 35px;
+ 	right: 0px;
+ 	width: 60px;
+ 	height: 20px;
+ 	border: 1px solid  #3CA5F6;
+ 	text-decoration: none;
+ 	color: #3CA5F6;
+ 	font-size: 12px;
+ 	line-height: 18px;
+ 	text-align: center;
+ 	box-sizing:border-box;
+ }
+
+/* mod-info end*/
+/*main end*/
 footer {
 	width:100%;
 	height:100px;
@@ -209,13 +331,7 @@ footer {
 	position: relative;
 	top: 100px;
 }
-p {
-	padding:10px 10px;
-	font-size:16px;
-	font-weight:bold;
-	color:#39C;
-	line-height:22px;
-}
+
 /* icon start */
 .icon{
 	background: transparent url(../img/icon.png) no-repeat scroll;
@@ -237,6 +353,14 @@ p {
 	background-position:-320px -10px;
 	
 }
+.icon-cmt{
+	background-position: -65px -2px;
+	margin-left: 20px;
+}
+.icon-fvr{
+	background-position: -102px -3px;
+	margin-left: 15px;
+}
 .caret{
 	display: inline-block;
 	width: 0px;
@@ -246,6 +370,12 @@ p {
 	border-right: 4px solid transparent;
 	margin-left: 8px;
 	margin-bottom: 3px; 
+}
+.icon-caret{
+	background-position: -211px -720px; 
+	position: absolute;
+	right: 18px;
+	top: 13px;
 }
 /* icon end */
 .clearfix:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
