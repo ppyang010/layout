@@ -120,10 +120,15 @@ header>.container li>a:hover{
 /* 短趣start */
 .side .side-box{
 	background: #fafafa;
+	position: relative;
+}
+.placeholder{
+	height: 30px;
 }
 .side .side-box h3{
 	text-align: left;
 	height: 60px;
+
 }
 .side .side-box h3 b{
 	font-size: 20px;
@@ -142,10 +147,7 @@ header>.container li>a:hover{
 	line-height: 20px;
 	padding: 0 0 10px 0;
 	text-align: center;
-	color: #bbb;
-	font-size: 14px;
 	box-sizing:border-box;
-
 }
 .side .side-box li{
 	padding: 0 10px 10px 10px;
@@ -153,6 +155,24 @@ header>.container li>a:hover{
 
 }
 
+.side-box .side-box-all a,.side .side-box .side-box-more{
+	color: #bbb;font-size: 14px;
+}
+
+.side-box .side-box-all {
+	position: absolute;
+	right: 30px;
+	top:30px;
+}
+.side-box .side-box-mark {
+	position: absolute;
+	display: inline-block;
+	width: 4px;
+	height: 20px;
+	background-color: red;
+	left: 0px;
+	top:30px;
+}
 
 .story-content .story-title .title{
 	font-size: 16px;
@@ -163,7 +183,7 @@ header>.container li>a:hover{
 	position: relative;
 	cursor: pointer;
 }
-.story-content .story-title .title:hover{
+.story-content .story-title .title:hover ,.side-box .side-box-all a:hover{
 	color: #3ca5f6;
 }
 .story-content .story-title .title:hover .icon-caret{
@@ -179,6 +199,106 @@ header>.container li>a:hover{
 
 }
 /* 短趣end */
+/* 传言 start */
+.side-box-content{
+	position: relative;
+}
+.side-box-content .side-box-pic{
+	width: 280px;
+	height: 158px;
+	margin: 14px 30px 0 30px;
+
+}
+
+.side-box-content .pic-content{
+	width: 280px;
+	height: 158px;
+	z-index: 10;
+	position: absolute;
+	top: 0;
+}
+.side-box-content .pic-content h2{
+	text-align: left;
+	font-size: 18px;
+	line-height: 1.5;
+	margin: 20px;
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+	font-weight: 400;
+}
+.side-box-content .rumorlist{
+	padding: 0 30px 0 37px;
+	box-sizing:border-box;
+	margin-top: 25px;
+	position: relative;
+	border-bottom: 1px solid #f0f0f0;
+
+}
+.side-box-content .rumorlist .icon-clock{
+	position: absolute;
+	top:0;
+	left: 30px;
+}
+
+.side-box-content .rumorlist .rumor-time{
+	font-size: 14px;
+	color: #999;
+	line-height: 16px;
+	text-align: left;
+	margin-bottom: 9px;	
+	padding-left: 20px;
+
+}
+.side-box-content .rumorlist .rumor-detail{
+	font-size: 16px;
+	color: #333;
+	line-height: 28px;
+	text-align: left;
+	margin-bottom: 9px;	
+	overflow: hidden;
+	padding-left: 20px;
+	text-overflow:ellipsis;
+}
+.side-box-content .rumorlist .rumor-detail a{
+	color: #333;
+}
+.side-box-content .rumorlist  .rumor-detail a:hover,.side-box-content .rumorlist .rumor-more a:hover{
+	color: #337ab7;
+}
+/* 更多 */
+.side-box-content .rumorlist .rumor-more{
+	font-size: 16px;
+	line-height: 28px;
+	text-align: right;
+	position: absolute;
+	
+}
+.side-box-content .rumorlist .rumor-more a{
+	color: #bbb;
+
+}
+
+/* 按钮 */
+.side-box-content .rumor-button{
+	width: 280px;
+	height: 50px;
+	padding: 30px;
+}
+
+.side-box-content .rumor-button a{
+	color: #fff;
+	display: inline-block;
+	font-size: 18px;
+	width: 280px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #3ca5f6;
+
+	text-align: center;
+}
+
+/* 传言 end */
 /*side end*/
 
 /* main start*/
@@ -380,3 +500,6 @@ footer {
 /* icon end */
 .clearfix:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
 .clearfix{zoom:1}
+a{
+	text-decoration: none !important;
+}
