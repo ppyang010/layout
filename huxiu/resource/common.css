@@ -444,13 +444,40 @@ header>.container li>a:hover{
 
 /* mod-info end*/
 /*main end*/
+
+/* footer start */
 footer {
 	width:100%;
-	height:100px;
-	background:red;
+	
+	background:#2d3237;
 	position: relative;
-	top: 100px;
+	/* top: 100px; */
+	color: #6b6e81;
 }
+footer a{
+	color: #6b6e81;
+	font-size: 14px;
+}
+footer .container{
+	padding: 35px 41px 0px 41px;
+	height:100px;
+}
+footer .container .footer-tag-list,footer .container span{
+	text-align: left;
+}
+footer .container .footer-tag-list a{
+	margin-right: 15px;
+}
+
+footer .container span{
+	line-height: 28px;
+    margin-bottom: 30px;
+    display: block;
+    margin-top: 10px;
+	font-size: 12px;
+}
+/* footer end */
+
 
 /* icon start */
 .icon{
