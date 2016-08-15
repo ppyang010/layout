@@ -453,6 +453,7 @@ footer {
 	position: relative;
 	/* top: 100px; */
 	color: #6b6e81;
+	padding-bottom: 10px;
 }
 footer a{
 	color: #6b6e81;
@@ -461,20 +462,32 @@ footer a{
 footer .container{
 	padding: 35px 41px 0px 41px;
 	height:100px;
+	margin:0 auto;
+	width: 1170px;
 }
 footer .container .footer-tag-list,footer .container span{
 	text-align: left;
 }
 footer .container .footer-tag-list a{
 	margin-right: 15px;
+	line-height: 20px;
 }
 
-footer .container span{
+footer .container span , footer .container span a{
 	line-height: 28px;
     margin-bottom: 30px;
-    display: block;
     margin-top: 10px;
 	font-size: 12px;
+}
+
+footer .container span {
+    display: block;
+}
+
+footer .container span em{
+	font-style: normal;
+	display: inline-block;
+	margin-left: 15px;
 }
 /* footer end */
 
@@ -523,6 +536,22 @@ footer .container span{
 	position: absolute;
 	right: 18px;
 	top: 13px;
+}
+.i-wj{
+	background:url(../img/wj.png);
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	top:3px;
+	position: relative;
+}
+.icon-aliyun{
+	background:url(../img/aliyun.png) no-repeat;
+	display: inline-block;
+	width: 70px;
+	position: relative;
+	height: 40px;
+	top: 10px;
 }
 /* icon end */
 .clearfix:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
