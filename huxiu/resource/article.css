@@ -5,10 +5,54 @@
   margin-bottom: 10px;
   line-height: 1.5;
   font-weight: 500;
+  text-align: left;
+}
+
+.article-warp .article-author{
+    position: relative;
+    text-align: left;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 10px 0;
+    color: #b4b4b4;
+}
+
+.article-author .author-name a{
+  color: #000000;
+}
+.article-author .author-name a:hover{
+  color:#3ca5f6;
+}
+.article-author .article-time{
+  margin: 0 10px 0 10px;
+
+}
+.article-author .article-share{
+    margin: 0 10px 0 10px;
+}
+.article-author .article-pl{
+
 }
 
 .article-warp .article-content p{
   text-align: left;
   font-size: 16px;
   line-height: 30px;
+}
+
+
+
+
+
+/*icon*/
+.icon{
+	background: transparent url(../img/icon.png) no-repeat scroll;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	position: relative;
+	top: 8px;
+}
+.icon-line{
+	background-position:-145px -1px;
 }
