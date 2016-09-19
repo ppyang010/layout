@@ -75,8 +75,49 @@
             </div>
 				</div>
 		</div>
+		<!-- 评论部分 -->
+		<div class="pl-warp">
+			<!-- 评论表单 -->
+			<div class="pl-form-warp">
+				<h2 class='pl-form-title'>发表评论</h2>
+				<div class="pl-form-author">
+					<div class="author-info">
+					<div class="author-face"></div>
+					<span class="author-name">ppyang</span>
+					</div>
+				</div>
+				<div class="pl-form-box">
+					<form class="pl-form" action="index.html" method="post">
+								<textarea onmousedown="stopPreventDefault(event,this)"class='pl-form-textarea' name="" id="" >
 
+								</textarea>
+								<script>
+								function stopPreventDefault(e,a)
+								{
+								 if ( e && e.preventDefault )
+								          e.preventDefault();
+								else
+								window.event.returnValue=false;
+									a.focus();
 
+								}
+								</script>
+								<input class='btn-tj' type="button" value="发表">
+					</form>
+				</div>
+			</div>
+			<!-- 评论列表 -->
+			<div class="pl-list-warp">
+				<a href=""></a>
+				<a href=""></a>
+				<div class="pl-box-warp">
+					<div class="pl-box-top">
+						<div class="author-info"></div>
+					</div>
+					<div class="pl-box-btm"></div>
+				</div>
+			</div>
+		</div>
   </div>
   <div class="side">
     <div class="side-box">

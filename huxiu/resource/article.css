@@ -1,5 +1,6 @@
-.article-warp{
-
+.article-warp , .pl-warp{
+  margin-left: 60px;
+  padding-left: 30px;
 }
 .article-warp h1{
   margin-bottom: 10px;
@@ -40,7 +41,47 @@
   line-height: 30px;
 }
 
+/*评论区*/
+/*评论表单区*/
+.pl-warp .pl-form-warp{
+  text-align: left;
+}
+.pl-form-warp .pl-form-title{
+  width: 72px;
+  height: 24px;
+  box-sizing: border-box;
+  font-size: 18px;
+  border-bottom: 3px solid #ff0000;
+}
 
+.pl-form-warp .pl-form-author{
+  margin: 20px 0 20px 0;
+}
+
+.pl-form-box .pl-form{
+}
+.pl-form-box .btn-tj{
+  width: 148px;
+  height: 48px;
+  background-color: #038cfc;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 38px;
+  border: 1px solid #038cfc;
+
+}
+.pl-form-box .pl-form-textarea{
+  width: 100%;
+  height: 194px;
+  resize: none;
+}
+
+/*评论作者*/
+.pl-form-warp .author-info{
+
+}
+
+/*评论列表区*/
 
 
 
