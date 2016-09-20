@@ -451,7 +451,7 @@ footer {
 
 	background:#2d3237;
 	position: relative;
-	 top: 100px; 
+	 top: 100px;
 	color: #6b6e81;
 	padding-bottom: 10px;
 }
@@ -553,6 +553,8 @@ footer .container span em{
 	height: 40px;
 	top: 10px;
 }
+
+
 /* icon end */
 .clearfix:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
 .clearfix{zoom:1}
