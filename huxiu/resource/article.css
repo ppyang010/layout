@@ -143,6 +143,14 @@
     font-size: 16px;
     background: #f6f6f6;
 }
+.pl-box-warp .pl-box-top .dp-triangle{
+  margin-left: 16px;
+  width: 0;
+  height: 0;
+  border-left:  10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f6f6f6;
+}
 
 .pl-box-warp  .dp-box .dp-box-top{
   padding: 0 0 20px 0;
