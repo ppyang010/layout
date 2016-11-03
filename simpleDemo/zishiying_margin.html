@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自适应式</title>
+</head>
+
+<style media="screen">
+
+  div{
+    height: 300px;
+  }
+
+  .left{
+    float: left;
+    background-color: pink;
+    width: 100px;
+    margin-left: -100%;
+  }
+  .right{
+    float:right;
+    background-color: red;
+    width: 100px;
+    margin-left: -100%;
+    /*向左移动父元素大小的距离*/
+
+  }
+  .content{
+    float: left;
+    width: 100%;
+
+  }
+  .center{
+    margin: 0 110px 0 110px;
+    background-color: blue;
+  }
+
+
+</style>
+
+
+<body>
+
+  <div class="content">
+    <div class="center"></div>
+  </div>
+  <div class="left"></div>
+
+  <div class="right"></div>
+</body>
+</html>

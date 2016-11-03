@@ -1,0 +1,103 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta charset="UTF-8">
+<title>绝对定位:一栏固定,一栏自适应</title>
+<style type="text/css">
+
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background:#fff;
+	font:12px normal Arial #444;
+	line-height:18px;
+	text-align:center;
+}
+ .header {
+	width:100%;
+	position: fixed;
+	height:50px;
+	background:#39c;
+	margin-bottom: 30px;
+	z-index: 9999;
+}
+
+.body {
+width:1170px;
+	height:2000px;
+	margin:0 auto;/*根据body宽度平分margin居中*/
+	background:#f2f2f2; 
+	position: relative;
+	top: 85px;
+	display: flex;	
+	flex: 1;
+	/* justify-content:center;
+	 *//*在body的内容中 将灵活项（flex子项）居中*/
+	
+} 
+
+.side {
+	/*width:300px;*/
+	height:400px;
+	background:#fff;
+	flex: 0 1 300px; 
+	/*第二个参数表示浏览器宽度不足时 被隐藏的部分的分配比例 优先分配侧边栏*/
+
+}
+.main {
+	margin-right:30px;
+	background:#fff;
+	margin-left:40px;
+	height:400px;
+	flex: 0 0 800px;
+}
+.left{
+	flex: 1 1em;
+	background:red;
+	height:400px;
+}
+.mrc {
+	width:96%;
+	height:300px;
+	margin:0 auto;
+	background:#444;
+}
+
+footer {
+	width:100%;
+	height:100px;
+	background:red;
+	position: relative;
+	top: 100px;
+}
+p {
+	padding:10px 10px;
+	font-size:16px;
+	font-weight:bold;
+	color:#39C;
+	line-height:22px;
+}
+</style>
+</head>
+<body>
+<header class="header"><span style="color:#fff; font-size:14px;font-weight:bold; line-height:28px;">头部自适Div</span></header>
+<div class="body">
+	
+ 	 <div class="main">
+    <p>左则自适应缩放</p>
+    <div class="mrc">
+      <p>内容区块,相对父元素按百分比适应</p>
+    </div>
+  </div>
+  <div class="side">
+    <p>绝对固宽定位的右侧栏>
+  </div>
+
+</div>
+  <footer class="footer">
+    <p>底部自适应</p>
+  </footer>
+</body>
+</html>

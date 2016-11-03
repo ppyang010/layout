@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平列表底部对齐</title>
+</head>
+<style type="text/css">
+/* 方案1  inline-block+vertical-align */
+ 	/* .child{
+ 			display: inline-block;
+ 			vertical-align:bottom;
+ 		}  */
+
+</style>
+
+<style type="text/css">
+	/* 方案2  flex +align-items */
+	.parent{
+		display:flex;
+		align-items:flex-end;
+
+	}
+
+</style>
+<body>
+	<div class="parent" height="200px;">
+	    <div class="child" style="height: 140px; width:50px; background-color: blue;">blue</div>
+		<div class="child" style="height: 200px; width:50px; background-color: red;">red</div>
+	    <div class="child" style="height: 100px; width:50px; background-color: yellow;">yellow</div>
+	    <div class="child" style="height: 180px; width:50px; background-color: green;">green</div>
+	</div>
+
+</body>
+</html>
