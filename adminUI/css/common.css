@@ -1,0 +1,37 @@
+/**/
+.g-sidebar{
+    float: left;
+    width: 300px;
+    height: 500px;
+    background-color: red;
+}
+
+.g-main{
+    height: 500px;
+    margin-left: 310px;
+    background-color: blue;
+}
+
+
+
+
+/*icon*/
+
+.i-icon{
+
+}
+
+.i-icon-user-off{
+    display: inline-block;
+    background: transparent url('../img/小黄人off.png') no-repeat scroll;
+    width: 20px;
+    height: 20px;
+}
+
+
+.i-icon-user-on{
+    display: inline-block;
+    background: transparent url('../img/小黄人on.png') no-repeat scroll;
+    width: 20px;
+    height: 20px;
+}
