@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet/less" href="../less/bootstrap.less" media="screen" title="no title">
+    <script type="text/javascript" src="../js/less.min.js"></script> -->
+    <!-- <link href="../css/bootstrap.css" rel="stylesheet"> -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
     <link href="../css/common.css" rel="stylesheet">
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -13,7 +16,7 @@
     <![endif]-->
 </head>
 <body>
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default " role="navigation">
     	<div class="container-fluid">
         	<div class="navbar-header">
         		<a class="navbar-brand" href="#">Admin UI</a>
@@ -40,7 +43,13 @@
     	</div>
     </nav>
     <div class="container-fluid">
-        <div class="g-sidebar"></div>
+        <div class="g-sidebar navbar-default">
+            <ul class="m-sidemenu">
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+            </ul>
+        </div>
         <div class="g-main"></div>
     </div>
 
