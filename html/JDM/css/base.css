@@ -1,0 +1,75 @@
+*,
+::after,
+::before{
+
+    padding: 0;
+    margin: 0;
+
+    /*设置点击时的高亮颜色  设置为透明  相当于清楚   rgba(0,0,0,0)*/
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color:transparent;
+    /*定义盒子模型定义的宽度从边框计算*/
+    -webkit-box-sizing: border-box;
+
+}
+
+
+body{
+    /*第二个参数为浏览器默认字体*/
+    font-family: "Microsoft YaHei" , "sans-serif";
+    font-size: 14px;
+    line-height: 1;
+    color: #333;
+    position: relative;
+    background: #f5f5f5;
+}
+
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+input,textarea{
+    border:0;
+    /*清楚选中效果*/
+    outline: none;
+    /*用户无法调整元素的尺寸。*/
+    resize: none;
+
+    /*清楚ios浏览器默认的样式*/
+    -webkit-appearance: none;
+}
+
+img{
+    vertical-align: middle;/*清除3px的bug*/
+    border: 0;
+}
+
+.clearfix::after{
+    clear: both;
+    display: block;
+    content: '.';
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+
+}
+.clearfix{
+    zoom:1;
+}
+
+.jd_layout{
+    position: relative;
+    margin: 0 auto;
+    max-width: 640px;
+    min-width: 300px;
+}
+[class^="icon_"]{
+    background: url("../image/jd-sprites.png") no-repeat;
+    background-size: 200px 200px;
+}
