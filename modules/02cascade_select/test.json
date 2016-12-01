@@ -1,4 +1,4 @@
-var x=[
+var testList=[
     {
         "text": "第一级",
         "value": "1",
