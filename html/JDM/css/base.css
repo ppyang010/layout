@@ -15,13 +15,16 @@
 
 
 body{
-    /*第二个参数为浏览器默认字体*/
-    font-family: "Microsoft YaHei" , "sans-serif";
+    /* sans-serif为浏览器默认字体*/
+    font-family: :PingFangSC-Regular,Helvetica,"Droid Sans",Arial,sans-serif
     font-size: 14px;
     line-height: 1;
     color: #333;
     position: relative;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
+    background: #fff;
+    /*手机页面  支持弹性滚动*/
+    -webkit-overflow-scrolling:touch;
 }
 
 
@@ -46,9 +49,27 @@ input,textarea{
 }
 
 img{
+    width: 100%;
     vertical-align: middle;/*清除3px的bug*/
     border: 0;
 }
+
+
+
+.jd_layout{
+    position: relative;
+    margin: 0 auto;
+    max-width: 640px;
+    min-width: 300px;
+}
+[class^="icon_"]{
+    background: url("../image/jd-sprites.png") no-repeat;
+    background-size: 200px 200px;
+}
+
+
+
+/*常用选择器*/
 
 .clearfix::after{
     clear: both;
@@ -63,13 +84,41 @@ img{
     zoom:1;
 }
 
-.jd_layout{
-    position: relative;
-    margin: 0 auto;
-    max-width: 640px;
-    min-width: 300px;
+.floor{
+    font-size: 0;
+    width: 100%;
 }
-[class^="icon_"]{
+
+.f-pr{
+  position: relative;
+}
+.f-pa{
+  position: absolute;
+}
+.f-icon{
     background: url("../image/jd-sprites.png") no-repeat;
     background-size: 200px 200px;
+}
+/*右侧线*/
+.f-bdr-right{
+    border-right: 1px solid #f0f0f0;
+}
+/*底部线*/
+/*.f-bdr-bottom:after{
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-top: 1px solid #f0f0f0;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+
+    z-index: 10;
+}*/
+.f-bdr-bottom{
+    border-bottom: 1px solid #f0f0f0;
+
 }
