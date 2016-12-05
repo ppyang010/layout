@@ -6,22 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@输入提示</title>
 </head>
+<style media="screen">
+    body{
+        padding: 0px;
+
+    }
+    /*弹出框样式*/
+    .recipients-tips{ font-family:Tahoma, Arial;position:absolute; background:#f7f7f2; z-index:2147483647; padding:2px; border:1px solid #6b9228; display:none;}
+	.recipients-tips li a{display:block; padding:2px 5px; color:#333; cursor:pointer; font-family:Tahoma, Arial;}
+	.recipients-tips li a em{font-weight:700; color:#000; font-family:Tahoma, Arial;}
+	.autoSelected{background:#b8c796; font-family:Tahoma, Arial;}
+
+</style>
 <body>
     <textarea name="name" rows="8" cols="80"></textarea>
     <script type="text/javascript">
+    /**
+    实现思路
+    我们可以用监测文本框是否输入了一个@符号，如果输入了就找到@符号在页面上的绝对位置，弹出选择框。
+    在操作textarea的时候光标的绝对位置是个麻烦事。
+    首先在页面创建一个具有 visibility:hidden;(占位但是不显示) 属性的DIV。
+    他的位置、宽度、高度与textarea文本框一样（这意味着两者已经重叠了）。
+    然后我们获取到textarea的所有文本，写入div里面，在追加一个<span id='FFF'></span>；
+    那么ID为FFF 的span标签的位置就可以用来设置弹出框的位置
+
+    **/
+
+
+
+    var html = '<div id="autoTalkBox"style="z-index:-2000;top:$top$px;left:$left$px;width:$width$px;height:$height$px;z-index:1;position:absolute;scroll-top:$SCTOP$px;overflow:hidden;overflow-y:auto;visibility:hidden;word-break:break-all;word-wrap:break-word;*letter-spacing:0.6px;"><span id="autoTalkText"></span></div>';
+    var list='<div id="recipientsTips" class="recipients-tips"><ul id="autoTipsUserList"><li>1</li><li>11</li><li>111</li></ul></div>';
         var textarea=document.getElementsByTagName('textarea')[0];
         textarea.addEventListener('input',function(event){
-            console.dir(event);
+            // console.dir(event);
+            console.dir(arguments);
             var target=event.target,
             cursor=target.selectionStart;//获取光标位置
+            var info=target.getBoundingClientRect();//获取元素到边框的距离
+            html = html.replace('$top$',info.top).//设置覆盖textarea的div的属性
+					replace('$left$',info.left).
+					replace('$width$',info.width).
+					replace('$height$',info.height).
+					replace('$SCTOP$','0');
+            var div=html2node(html);
+
+
             if(target.value.charAt(cursor-1)==='@'){
-                console.log('xxx');
+                // console.log('xxx');
+                //根据textarea的样式设置div
+                var targetCss=window.getComputedStyle(target);
+                div.style.fontSize=targetCss.fontSize;
+                div.style.padding=targetCss.padding;
+                div.innerHTML=target.value.slice(0,cursor-1)+'<span id="autoTalkText" style="">@</span>';
+                target.parentElement.appendChild(div);
+
+                // 获取span定位
+                var span=document.getElementById('autoTalkText');//因为div为绝对定位所以span的offsetparent为该div
+                var tipList=html2node(list);
+                tipList.style.cssText='position:absolute; top:'+(div.offsetTop+span.offsetTop+span.offsetHeight)+'px; left:'+(div.offsetTop+span.offsetLeft)+'px; ';//暂时将tipList的offsetparent当作body设置
+                target.parentElement.appendChild(tipList);
+                tipList.style.display='block';
+                //TODO 提示框消失 点击添加内容
+
+
+
 
             }
         })
 
         function doShowAtList(){
 
+        }
+
+        function html2node(str){
+            var node=document.createElement('div');
+            node.innerHTML=str;
+            return node.children[0];
         }
     </script>
 </body>
