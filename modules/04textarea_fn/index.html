@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>selectList</title>
+</head>
+
+<body>
+
+    <div>
+        <textarea id="test" style="width: 300px; height: 50px;">abcdefghijklmnopqrstuvwxyz</textarea>
+        <br>
+        <input onclick="alert(TT.getCursorPosition('test'))" type="button" value="光标位置">
+        <input onclick="TT.setCursorPosition('test',3)" type="button" value="设置光标到3第位置">
+        <input onclick="TT.add('test','你好')" type="button" value="添加'你好'到光标后面">
+        <input onclick="TT.del('test',2)" type="button" value="删除光标前2个字符">
+        <input onclick="TT.del('test',-2)" type="button" value="删除光标后2个字符">
+        <input onclick="TT.sel('test',0,2)" type="button" value="选中字符0-2的位置">
+        <input onclick="TT.selString('test','mno')" type="button" value="选中字符'mno'的位置">
+
+    </div>
+    <script type="text/javascript" src="./fn.js">
+
+    </script>
+</body>
+
+</html>
