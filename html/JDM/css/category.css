@@ -7,55 +7,7 @@ body{
 }
 
 
-/*顶部*/
-.jd_top_bar{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 44px;
-    background: url('../image/header-bg.png') repeat-x;
-    background-size: 1px 44px;
-    border-bottom: 1px solid #e0e0e0;
-    z-index:100;
-}
-.jd_top_bar .icon_back{
-    display: inline-block;
-    float: left;
-    margin: 12px 10px;
-    width: 20px;
-    height: 20px;
-    background-position: -20px 0;
-}
-.jd_top_bar .jd_top_form{
-    margin-top: 7px;
-    margin-left: 45px;
-    padding-right: 40px;
-    height: 30px;
 
-}
-.jd_top_bar .jd_top_form .search_box{
-    display: inline-block;
-    width: 100%;
-    height: 30px;
-}
-.jd_top_bar .jd_top_form .search_box input{
-    width: 100%;
-    height: 30px;
-    padding-left: 20px;
-    border: 1px solid #bfbfbf;
-    border-radius: 4px;
-}
-.jd_top_bar .icon_menu{
-    position: absolute;
-    top:0;
-    right: 0;
-    display: inline-block;
-    float: right;
-    margin: 10px 10px;
-    width: 20px;
-    height: 20px;
-    background-position: -60px 0;
-}
 
 
 
@@ -70,16 +22,18 @@ body{
     float: left;
     width: 90px;
     height: 100%;
+
 }
 .body_left .category_tab {
     padding-top: 45px;
     width: 90px;
-    height: 100vh;
+    /*暂时定死  js动态实现*/
+    height: 667px;
     overflow: hidden;
+
 }
 .body_left .category_tab ul{
     width: 90px;
-    height: 100%
 }
 .body_left .category_tab li{
     position: relative;
@@ -113,11 +67,110 @@ body{
     font-size: 11px;
 }
 
+/*主体*/
+.jd_category_body .body_content{
 
-.jd_category_body .body_main{
-    margin-left: 100px;
-    padding-top: 45px;
+    padding-left: 90px;
     width: 100%;
-    height: 100%;
+
     background-color: #f3f5f7;
+    background-origin: content-box;
+    background-clip: content-box;
+}
+.jd_category_body .body_content .content_box_list{
+    padding-top: 45px;
+    /*暂时定死  js动态实现*/
+    height: 622px;
+    overflow: hidden;
+    box-sizing: content-box;
+
+
+}
+.body_content .content_banner {
+    width: 100%;
+}
+.body_content .content_banner img{
+    padding: 7px 7px 0 7px;
+    width: 100%;
+}
+.body_content .content_box {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 7px 7px 0;
+    width: 100%;
+}
+.body_content .content_box h4{
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1em;
+}
+
+
+
+.body_content .content_box .content_box_products{
+    margin-top: 9px;
+    padding: 7px 10px 0;
+    width: 100%;
+    background: #fff;
+}
+.body_content .content_box .content_box_product{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+.body_content .content_box .content_box_product a{
+    display: block;
+    width: 100%;
+
+}
+.body_content .content_box .content_box_product img{
+    width: 55px;
+    height: 55px;
+}
+.body_content .content_box .content_box_product span{
+    display: block;
+    width: 100%;
+    height: 31px;
+    font-size: 10px;
+    color: #686868;
+}
+
+
+
+.body_content .content_box .rank_box,.content_box .del_box{
+    float: right;
+}
+.body_content .content_box .rank_box .icon_rank{
+    display: inline-block;
+    line-height: 0;
+    width: 12px;
+    height: 12px;
+    background: url('../image/icon_rank.png') no-repeat;
+    background-size: 12px 12px;
+}
+.body_content .content_box .rank_box .icon_arrow{
+    display: inline-block;
+    line-height: 0;
+    width: 6px;
+    height: 10px;
+    background: url('../image/icon_arrow.png') no-repeat;
+    background-size: 6px 10px;
+}
+
+.body_content .content_box .rank_box span,.content_box .del_box span{
+    display: inline-block;
+    color: #848689;
+    font-size: 10px;
+    line-height: 12px;
+    position: relative;
+    bottom: 2px;
+}
+
+.content_box .del_box .icon_del{
+    display: inline-block;
+    line-height: 0;
+    width: 12px;
+    height: 12px;
+    background: url('../image/icon_del.png') no-repeat;
+    background-size: 12px 12px;
 }

@@ -1,0 +1,70 @@
+.jd_top_bar{
+    position: absolute;
+}
+
+/*主体*/
+.jd_cart_content{
+    padding-top:45px;
+}
+
+.jd_safe_box{
+    height: 34px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+.jd_safe_box .m_icon_safe{
+    padding-top: 8px;
+    width: 18px;
+    height: 18px;
+    background-position: 0 -150px;
+    vertical-align: middle;
+
+}
+.jd_safe_box span{
+    display: inline-block;
+    color:#686868;
+    font-size: 13px;
+    line-height: 34px;
+
+}
+
+/*商店内容*/
+.shop_list{
+    margin: 0;
+    padding: 0 6px;
+    height: 100%;
+    background: #f0f2f5;
+}
+.shop_list .shop_item{
+
+}
+.shop_item .shop_head{
+
+    height: 44px;
+    background: #fff;
+}
+.shop_item .shop_head .check_warp{
+    float: left;
+    margin-left: 10px;
+    margin-top: 11px;
+    vertical-align: middle;
+}
+
+/*当前页通用*/
+
+[class^="m_icon_"]{
+    display: inline-block;
+    background: url("../image/cart_spirits.png") no-repeat;
+    background-size: 50px 200px;
+}
+.check_warp .m_icon_checkbox{
+    width: 20px;
+    height: 20px;
+    background-position: 0 1px;
+}
+.check_warp .m_icon_checkbox.checked{
+    width: 20px;
+    height: 20px;
+    background-position: -25px 0;
+}
