@@ -32,17 +32,17 @@
 /*商店内容*/
 .shop_list{
     margin: 0;
-    padding: 0 6px;
+    padding: 10px 6px 0;
     height: 100%;
     background: #f0f2f5;
 }
 .shop_list .shop_item{
-
+    background: #fff;
 }
+/*店铺头*/
 .shop_item .shop_head{
 
     height: 44px;
-    background: #fff;
 }
 .shop_item .shop_head .check_warp{
     float: left;
@@ -50,6 +50,73 @@
     margin-top: 11px;
     vertical-align: middle;
 }
+
+.shop_head_content{
+    margin-left: 40px;
+    padding-top: 12px;
+}
+
+.shop_head_content .shop_title_icon{
+}
+.shop_head_content .shop_title_icon .m_icon_title{
+    width: 16px;
+    height: 14px;
+    background-position: -26px -25px;
+    vertical-align: middle;
+}
+.shop_head_content .shop_title_icon .shop_title{
+    font-size: 14px;
+    line-height: 14px;
+    color: #252525;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+.shop_head_content .shop_btn{
+    float: right;
+    margin-right: 10px;
+}
+.shop_head_content .shop_btn span{
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 1px solid #e3e5e9;
+}
+/*免运费信息*/
+.shop_item .shop_free_freight{
+    position: relative;
+    height: 44px;
+    /*border-top: 1px solid #e3e5e9;*/
+}
+.shop_item .shop_free_freight .free_freight_line{
+    position: absolute;
+    top:-11px;
+    display: inline-block;
+    height: 13px;
+    width: 100%;
+    background: url('../image/tips-line.png') repeat-x;
+    background-size: 1px 13px;
+
+}
+.free_freight_line .m_icon_line{
+    position: absolute;
+    top:0px;
+    width: 173px;
+    height: 13px;
+    background: url("../image/icon_line.png");
+    background-size: 173px 13px;
+    background-position: center;
+}
+.shop_item .shop_free_freight .free_freight_warp{
+    width: 100%;
+    height: 44px;
+}
+.shop_item .shop_free_freight .free_freight_warp .free_freight_msg{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
 
 /*当前页通用*/
 
@@ -67,4 +134,11 @@
     width: 20px;
     height: 20px;
     background-position: -25px 0;
+}
+.m_icon_info{
+    width: 13px;
+    height: 13px;
+    background: url("../image/icon_info.png");
+    background-size: 13px 13px;
+    vertical-align: middle;
 }
