@@ -116,6 +116,10 @@
     font-size: 12px;
     line-height: 14px;
 }
+/*商品*/
+.cart_list .cart_item{
+    height: 115px;
+}
 
 
 /*当前页通用*/
