@@ -33,10 +33,10 @@
 .shop_list{
     margin: 0;
     padding: 10px 6px 0;
-    height: 100%;
     background: #f0f2f5;
 }
 .shop_list .shop_item{
+    margin-bottom: 10px;
     background: #fff;
 }
 /*店铺头*/
@@ -58,10 +58,16 @@
 
 .shop_head_content .shop_title_icon{
 }
-.shop_head_content .shop_title_icon .m_icon_title{
+.shop_head_content .shop_title_icon .m_icon_jd_title{
     width: 16px;
     height: 14px;
     background-position: -26px -25px;
+    vertical-align: middle;
+}
+.shop_head_content .shop_title_icon .m_icon_shop_title{
+    width: 16px;
+    height: 14px;
+    background-position: 0px -24px;
     vertical-align: middle;
 }
 .shop_head_content .shop_title_icon .shop_title{
@@ -76,11 +82,7 @@
     float: right;
     margin-right: 10px;
 }
-.shop_head_content .shop_btn span{
-    padding-left: 10px;
-    font-size: 12px;
-    border-left: 1px solid #e3e5e9;
-}
+
 /*免运费信息*/
 .shop_item .shop_free_freight{
     position: relative;
@@ -117,9 +119,216 @@
     line-height: 14px;
 }
 /*商品*/
+
 .cart_list .cart_item{
-    height: 115px;
+    margin: 10px 0;
+    min-height: 115px;
 }
+.cart_item .check_warp{
+    display: inline-block;
+    float: left;
+    margin-top: 40px;
+    padding-left: 10px;
+    width:40px;
+}
+.cart_item .item_box{
+    margin-left: 40px;
+}
+.cart_item .item_box .item_img {
+    float: left;
+    width: 88px;
+    height: 88px;
+}
+.cart_item .item_box .item_img img{
+    width: 88px;
+    height: 88px;
+    border: 1px solid #e3e5e9;
+
+}
+.cart_item .item_box .item_content{
+    margin-left: 95px;
+    padding-right: 10px;
+}
+.cart_item .item_box .item_content .item_name{
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 3px;
+    /*width: 100%;
+    height: 30px;
+    max-height: 30px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #232326;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+}
+.cart_item .item_box .item_content .item_name span{
+    width: 100%;
+    height: 30px;
+    max-height: 30px;
+    font-size: 13px;
+    line-height: 15px;
+    font-family:PingFangSC-Regular,Helvetica,"Droid Sans",Arial,sans-serif;
+    vertical-align: middle;
+
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    -webkit-box-pack: center;
+}
+
+.cart_item .item_box .item_content .item_info{
+    display: flex;
+    width: 100%;
+    height: 12px;
+    line-height: 12px;
+    margin-bottom: 3px;
+    font-size: 11px;
+    color: #81838e;
+    white-space: nowrap;
+}
+.cart_item .item_box .item_content .item_info span{
+    flex-grow: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cart_item .item_box .item_content .item_info .info1{
+    margin-right: 6px;
+}
+
+
+/*价格和数量*/
+.item_content .item_handle_warp {
+
+}
+
+.item_content .item_handle_warp .number_warp{
+    position: relative;
+    float: right;
+}
+.item_content .item_handle_warp .number_warp{
+    position: relative;
+    float: right;
+}
+.item_content .item_handle_warp .number_warp a,.item_content .item_handle_warp .number_warp input{
+    float: right;
+}
+.item_content .item_handle_warp .number_warp .m_icon_increase{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-position: -19px -113px;
+    border: 1px solid #e3e5e9;
+}
+.item_content .item_handle_warp .number_warp .m_icon_decrease{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-position: 7px -94px;
+    border: 1px solid #e3e5e9;
+}
+.item_content .item_handle_warp .number_warp .number{
+    width: 34px;
+    height: 25px;
+    border-top: 1px solid #e3e5e9;
+    border-bottom:1px solid #e3e5e9;
+    text-align: center;
+    vertical-align: top;
+    font-size: 15px;
+    color: #232326;
+}
+
+.item_content .btn_options .shop_btn{
+    float: right;
+}
+
+
+/*促销信息*/
+.cart_item .promotion_warp{
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    font-size: 12px;
+    line-height: 14px;
+    background:  #f8f8f8;
+}
+.cart_item .promotion_warp .promotion_icon{
+    display: inline-block;
+    margin:  0 6px;
+    background-color: red;
+
+}
+.cart_item .promotion_warp .promotion_icon span{
+    display: inline-block;
+    padding: 0 3px;
+    color: #fff;
+    text-align: center;
+}
+.cart_item .promotion_warp .promotion_icon .promotion_down_arrow_icon{
+    position: absolute;
+    left: 15px;
+    border-top:4px solid red;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+}
+
+/*底部结算*/
+.payment_total_bar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    z-index:99;
+    background: #fff;
+    border-top: 1px solid #e3e5e9;
+    font-family:PingFangSC-Regular,Helvetica,"Droid Sans",Arial,sans-serif;
+}
+.payment_total_bar .check_warp{
+    float: left;
+    margin-left: 16px;
+    margin-top: 15px;
+}
+.payment_total_bar .check_warp span{
+    display: inline-block;
+    padding-left: 6px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: bold;
+}
+.payment_total_bar .payment_info{
+    margin-top: 10px;
+    margin-left:75px;
+
+
+}
+.payment_total_bar .payment_info strong{
+    font-size: 14px;
+    line-height: 14px;
+}
+.payment_total_bar .payment_info p{
+    font-size: 12px;
+    line-height: 18px;
+    color: #232326;
+}
+.payment_total_bar .payment_btn {
+    float: right;
+    text-align: center;
+}
+.payment_total_bar .payment_btn a{
+    display: inline-block;
+    width: 98px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #f23030;
+}
+
 
 
 /*当前页通用*/
@@ -133,6 +342,8 @@
     width: 20px;
     height: 20px;
     background-position: 0 1px;
+    vertical-align: middle;
+
 }
 .check_warp .m_icon_checkbox.checked{
     width: 20px;
@@ -145,4 +356,9 @@
     background: url("../image/icon_info.png");
     background-size: 13px 13px;
     vertical-align: middle;
+}
+.shop_btn span{
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 1px solid #e3e5e9;
 }
