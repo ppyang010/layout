@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello react</title>
+</head>
+<body>
+    <!-- 简单交互和组件嵌套 -->
+    <div id="app"></div>
+    <script src="bower_components\react\react.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+    <script type="text/babel">
+        var MessageBox=React.createClass({
+            fn:function(){
+                alert('q');
+            },
+            getInitialState:function(){
+                return {
+                    isVisible:true,
+                    title:'hello react (from state)'
+                }
+            },
+            render:function(){
+                var box=[];
+                for(var i=0;i<10;i++){
+                    // key 属性不设置会warn 设置唯一标识
+                    box.push(<Boxa key={'key'+i}/>)
+                }
+                var styleObj={
+                    display:this.state.isVisible ?'block':'none'
+                };
+                return(
+                    <div>
+                        <h1 onClick={this.fn} style={styleObj} >{this.state.title}</h1>
+                        {box}
+                    </div>
+                )
+            }
+        });
+
+        var Boxa=React.createClass({
+            render:function(){
+                return (
+                    <div>
+                        <h3>box1</h3>
+                        <Boxb/>
+                    </div>
+                )
+            }
+        });
+
+        var Boxb=React.createClass({
+            render:function(){
+                return (
+                    <h4>box2</h4>
+                )
+            }
+        });
+
+        var rdom=ReactDOM.render(<MessageBox/> ,document.getElementById('app'), function(){
+            console.log("ok");
+        });
+        console.dir(rdom);
+        rdom.state.isVisible=false;
+        console.dir(MessageBox);
+    </script>
+</body>
+</html>

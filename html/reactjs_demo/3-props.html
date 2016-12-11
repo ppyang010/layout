@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>参数</title>
+</head>
+<body>
+    <!-- 简单交互和组件嵌套 -->
+    <div id="app"></div>
+    <script src="bower_components\react\react.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+    <script type="text/babel">
+        var MessageBox=React.createClass({
+
+            getInitialState:function(){
+                return {
+                    isVisible:true,
+
+                    subMsg:[
+						'我会代码搬砖',
+						'以及花式搬砖',
+						'不说了，工头叫我回去搬砖了。。。。。。',
+					]
+                }
+            },
+            render:function(){
+                var styleObj={
+                    display:this.state.isVisible ?'block':'none'
+                };
+
+                return(
+                    <div>
+                        <h1 style={styleObj} name='a' >{this.props.title}</h1>
+                        <Boxa  subMsg={this.state.subMsg}></Boxa>
+                    </div>
+                )
+            }
+        });
+
+        var Boxa=React.createClass({
+            propTypes:{
+				subMsg: React.PropTypes.array.isRequired,
+			},
+            getDefaultProps:function(){
+                return {
+                    subMsg:['默认的子消息'],
+                }
+            },
+            render:function(){
+                var msg=[];
+                this.props.subMsg.forEach(function(item){
+                    msg.push(<p>ccy:{item}</p>)
+                });
+                return (
+                    <div>
+                        {msg}
+                    </div>
+                )
+            }
+        });
+
+        var title='hello react (from props)';
+        var rdom=ReactDOM.render(<MessageBox title={title}/> ,document.getElementById('app'));
+        console.dir(rdom);
+        rdom.state.isVisible=false;
+        console.dir(MessageBox);
+    </script>
+</body>
+</html>
