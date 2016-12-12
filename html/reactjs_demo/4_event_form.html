@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="bower_components\react\react.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+
+    <script type="text/babel">
+        var FormApp=React.createClass({
+            getInitialState:function(){
+                return {
+					inputValue: 'input value',
+					selectValue: 'A2',
+					radioValue:'R2',
+					checkValues:[],
+					textareaValue:'some text here,,,,,'
+				}
+            },
+            formhandle:function(event) {
+                event.preventDefault();
+                console.log('提交test');
+                console.dir(this.refs['txt']);
+
+            },
+            inputHandle:function(event){
+                // console.log('input change');
+                this.setState({
+                    inputValue:event.target.value
+                });
+            },
+            render:function(){
+                return (
+                    <form onSubmit={this.formhandle} name="form1">
+                        <div>
+                            <label htmlFor="txt">txt:</label>
+                            <input type="text" id="txt" ref="txt" value={this.state.inputValue} onChange={this.inputHandle}/>
+                        </div>
+                        <div>
+                            <label htmlFor="sel">下拉框：</label>
+                            <select name="sel" id="sel" defaultValue={this.state.selectValue}>
+                                <option value="A1" >A1</option>
+                                <option value="A2" >A2</option>
+                                <option value="A3">A3</option>
+                                <option value="A4">A4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label htmlFor="">单选框:</label>
+                            <input type="radio" name="radio" id="R1" value="R1" />
+                            <label htmlFor="R1">R1</label>
+                            <input type="radio" name="radio" id="R2" value="R2" />
+                            <label htmlFor="R2">R2</label>
+                        </div>
+                        <div>
+                            <label htmlFor="">多选框</label>
+                            <input type="checkbox" name="checkbox" id="C1" value="C2" />
+                            <label htmlFor="C1">C1</label>
+                            <input type="checkbox" name="checkbox" id="C2" value="C2" />
+                            <label htmlFor="C2">C2</label>
+                        </div>
+                        <div>
+                            <label htmlFor="textarea">文本框</label>
+                            <textarea name="textarea" id="textarea" cols="30" rows="10" defaultValue="默认">
+                            </textarea>
+                        </div>
+                        <div>
+                            <button type="submit">提交</button>
+                        </div>
+                    </form>
+                )
+
+            }
+        })
+
+        var FormDom=ReactDOM.render(<FormApp></FormApp>,document.getElementById('app'));
+         console.dir(FormDom);
+    </script>
+</body>
+</html>
