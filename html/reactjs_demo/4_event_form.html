@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>事件</title>
+    <title>事件和表单</title>
 </head>
 <body>
     <div id="app"></div>
@@ -26,9 +26,22 @@
             },
             formhandle:function(event) {
                 event.preventDefault();
-                console.log('提交test');
-                console.dir(this.refs['txt']);
 
+                //获取表单数据
+                var formData={
+                    inputValue:this.refs['txt2'].value,
+                    selectValue:this.refs['sel'].value,
+                    textareaValue:this.refs['textarea'].value,
+
+                    checkValues:this.state.checkValues,
+                    radioValue:this.state.radioValue
+                };
+                console.log(formData);
+                this.refs['radioapp'].saySomething();
+                console.dir(this.refs['radioapp']);//获取reactdom实例 因为是reactdom
+                console.dir(this.refs['txt2']);//获取真实dom 因为是htmldom
+                var ra=ReactDOM.findDOMNode(this.refs['radioapp']);//获取真实的dom 这里为div
+                console.dir(ra);
             },
             inputHandle:function(event){
                 // console.log('input change');
@@ -36,39 +49,53 @@
                     inputValue:event.target.value
                 });
             },
+            radioHandle:function(event){//单选框处理程序
+                this.setState({
+                    radioValue:event.target.value,
+                });
+            },
+            checkHandle:function(event){//多选框处理程序
+                var checkValues=this.state.checkValues.slice();//返回一个新的数组  以免影响原数组
+                var newVal=event.target.value;
+                var index=checkValues.indexOf(newVal);
+                if(index==-1){
+                    checkValues.push(newVal);//原数组没有该值添加
+                }else{
+                    checkValues.splice(index,1);//原数组存在删除
+                }
+                this.setState({
+                    checkValues:checkValues,
+                });
+            },
             render:function(){
                 return (
                     <form onSubmit={this.formhandle} name="form1">
                         <div>
-                            <label htmlFor="txt">txt:</label>
-                            <input type="text" id="txt" ref="txt" value={this.state.inputValue} onChange={this.inputHandle}/>
+                            <label htmlFor="txt1">txt1:</label>
+                            <input type="text" id="txt1" ref={function(input){ input.focus(); }} value={this.state.inputValue} onChange={this.inputHandle}/>  /*ref为函数*/
+                            <label htmlFor="txt2">txt2:</label>
+                            <input type="text" id="txt2" ref="txt2" defaultValue={this.state.inputValue} />  /*ref为字符串*/
                         </div>
                         <div>
                             <label htmlFor="sel">下拉框：</label>
-                            <select name="sel" id="sel" defaultValue={this.state.selectValue}>
+                            <select name="sel" id="sel" ref="sel" defaultValue={this.state.selectValue}>
                                 <option value="A1" >A1</option>
                                 <option value="A2" >A2</option>
                                 <option value="A3">A3</option>
                                 <option value="A4">A4</option>
                             </select>
                         </div>
-                        <div>
-                            <label htmlFor="">单选框:</label>
-                            <input type="radio" name="radio" id="R1" value="R1" />
-                            <label htmlFor="R1">R1</label>
-                            <input type="radio" name="radio" id="R2" value="R2" />
-                            <label htmlFor="R2">R2</label>
-                        </div>
+                        <RadioApp radioHandle={this.radioHandle} ref="radioapp" ></RadioApp>
                         <div>
                             <label htmlFor="">多选框</label>
-                            <input type="checkbox" name="checkbox" id="C1" value="C2" />
+                            <input onChange={this.checkHandle}  type="checkbox" name="checkbox" id="C1" value="C1" />
                             <label htmlFor="C1">C1</label>
-                            <input type="checkbox" name="checkbox" id="C2" value="C2" />
+                            <input onChange={this.checkHandle}  type="checkbox" name="checkbox" id="C2" value="C2" />
                             <label htmlFor="C2">C2</label>
                         </div>
                         <div>
                             <label htmlFor="textarea">文本框</label>
-                            <textarea name="textarea" id="textarea" cols="30" rows="10" defaultValue="默认">
+                            <textarea name="textarea" id="textarea" cols="30" rows="10" ref="textarea" defaultValue="默认">
                             </textarea>
                         </div>
                         <div>
@@ -79,6 +106,23 @@
 
             }
         })
+
+        var RadioApp=React.createClass({
+            saySomething:function(){
+				alert("yo what's up man!");
+			},
+            render:function(){
+                return (
+                    <div>
+                        <label htmlFor="">单选框:</label>
+                        <input onChange={this.props.radioHandle} type="radio" name="radio" id="R1" value="R1" />
+                        <label htmlFor="R1">R1</label>
+                        <input onChange={this.props.radioHandle} type="radio" name="radio" id="R2" value="R2" />
+                        <label htmlFor="R2">R2</label>
+                    </div>
+                )
+            }
+        });
 
         var FormDom=ReactDOM.render(<FormApp></FormApp>,document.getElementById('app'));
          console.dir(FormDom);

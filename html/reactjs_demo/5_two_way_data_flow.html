@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现双向数据流（类似）</title>
+    <!-- react是单项数据流 数据源改变页面改变  但页面被用户编辑修改 数据发生变化时也需要实时的提现出来
+    react封装了一个方法 不过该方法被弃用 不推荐使用 官方任推荐使用value +onchang 实现双向绑定 -->
+</head>
+<body>
+    <div id="app"></div>
+    <script src="bower_components\react\react-with-addons.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+    <script type="text/babel">
+        var App=React.createClass({
+            mixins:[React.addons.LinkedStateMixin],//载入方法
+            getInitialState:function(){
+				return {
+					message: 'react is awesome!',
+					isReactAwesome: true,
+				}
+            },
+            inputHandle:function(event){
+                this.setState({
+                    message:event.target.value,
+                })
+            },
+            render:function(){
+                /*将input的值与state中的message绑定   input——》message*/
+                // value onchang实现
+                /*将input的值与state中的isReactAwesome绑定 被选中true   input——》message*/
+                return (
+                    <div>
+                        <p>A: {this.state.message}</p>
+                        <p>B: {this.state.isReactAwesome ? "nice":"bad"}</p>
+                        <input type="text" valueLink={this.linkState('message')}/>
+                        <input type="text" value={this.state.message} onChange={this.inputHandle}/>
+                         <input type="checkbox" checkedLink={this.linkState('isReactAwesome')}/>
+                        <SubComp messageLink={this.linkState('message')} likeLink={this.linkState('isReactAwesome')} ></SubComp>{/*this.linkState()  执行后的返回值为仍可继续传递*/}
+                    </div>
+                )
+            }
+        });
+
+        var SubComp = React.createClass({
+            render:function(){
+                return (
+                    <div>
+                        <h3>这是个子组件哦</h3>
+                        <SubSubComp {...this.props } />{/*es6语法的实现  例如 function A(x,y,z)  你要把对象B{x:1,y:1,z:1} 作为参数  则可以使用 A(...B)  B为数组也同理*/}
+                        {/*<SubSubComp messageLink={this.props.messageLink} likeLink={this.props.likeLink}/>*/}
+                        {/*效果同上*/}
+                    </div>
+                )
+            }
+        });
+        var SubSubComp = React.createClass({
+        render:function(){
+            return (
+                <div>
+                    <p>你想说什么？</p>
+                    <input type="text" valueLink={ this.props.messageLink } />{/*通过传递实现底层组件修改顶层组件的状态*/}
+                    <p>你稀罕React么？</p>
+                    <input type="checkbox" checkedLink = {this.props.likeLink } />
+                </div>
+            )
+        }
+    })
+        var appDom=ReactDOM.render(<App></App>,document.getElementById('app'));
+
+
+    </script>
+
+</body,
