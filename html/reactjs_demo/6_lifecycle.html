@@ -24,11 +24,10 @@
             getDefaultProps:function(){
                 console.log('getDefaultProps');
             },
-
             componentWillMount:function(){
-                // 插入真实dom后执行
+                // 插入真实dom前执行
                 console.log('componentWillMount');
-                console.log(ReactDOM.findDOMNode(this));//获取真实dom
+                console.log(ReactDOM.findDOMNode(this));//无法获取真实dom
                 var self=this;
                 self.timer=setInterval(function(){
                     self.setState({
@@ -59,11 +58,38 @@
                     <div>
                         <button onClick={this.handle}>卸载</button>
                         <p>一共经过了{this.state.count}秒</p>
+                        <Submessage></Submessage>
                     </div>
                 )
 
             }
         })
+        var Submessage = React.createClass({
+            getInitialState:function(){
+                console.log('子组件getInitialState');
+                return {
+                    count:0,
+                }
+            },
+            getDefaultProps:function(){
+                console.log('子组件getDefaultProps');
+            },
+            componentWillMount:function(){
+                // 插入真实dom前执行
+                console.log('子组件componentWillMount');
+
+            },
+            componentDidMount:function(){
+                //插入真实dom后执行
+                console.log('子组件componentDidMount');
+            },
+            render:function(){
+                console.log('子组件render');
+                return (
+                    <h3>当前计数是：{this.state.count}</h3>
+                )
+            }
+        });
 
         var clickDom=ReactDOM.render(<ClickClass></ClickClass>,document.getElementById('app'));
          console.dir(clickDom);
@@ -74,6 +100,18 @@
  // componentWillMount
  // render
  // componentDidMount
+ //
+ // getDefaultProps
+// 子组件getDefaultProps
+// getInitialState
+// componentWillMount
+// render
+// 子组件getInitialState
+// 子组件componentWillMount
+// 子组件render
+// 子组件componentDidMount
+// componentDidMount
+
     </script>
 </body>
 </html>

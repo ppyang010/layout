@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mixin</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="bower_components\react\react.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+
+    <script type="text/babel">
+        var stateRecordMixin = {
+            componentWillMount:function(){
+                console.log('mix componentWillMount');
+                this.oldStates = [];
+            },
+            componentDidMount:function(){
+                console.log('mix  componentDidMount');
+            },
+            componentWillUpdate: function(nextProp,nextState){
+                console.log('mix componentWillUpdate');
+                this.oldStates.push(nextState);
+            },
+            componentDidUpdate:function(){
+                console.log('mix componentDidUpdate');
+            },
+            componentWillReceiveProps:function(nextProp){
+                console.log('mix componentWillReceiveProps');
+
+            },
+
+
+            previousState:function(){
+                var index = this.oldStates.length -1;
+                return index == -1 ? {} : this.oldStates[index];
+            }
+        }
+
+        var ClickClass=React.createClass({
+            mixins:[stateRecordMixin],
+            getInitialState:function(){
+                console.log('getInitialState');
+                return {
+                    count:0,
+                }
+            },
+            getDefaultProps:function(){
+                console.log('getDefaultProps');
+            },
+            componentWillMount:function(){
+                // 插入真实dom前执行
+                console.log('componentWillMount');
+
+            },
+            componentDidMount:function(){
+                //插入真实dom后执行
+                console.log('componentDidMount');
+            },
+            componentWillUnmount:function(){
+                // 移除真实dom前执行
+                console.log('componentWillUnmount');
+            },
+
+            componentWillUpdate:function(){
+                console.log('componentWillUpdate');
+
+            },
+            componentDidUpdate:function(){
+                console.log('componentDidUpdate');
+            },
+            handle:function() {
+                this.setState({
+                    count:this.state.count+1,
+                });
+                alert('上一次的计数是：'+this.previousState().count);
+            },
+            render:function(){
+                console.log('render');
+                return (
+                    <div>
+                        <button onClick={this.handle}>更新</button>
+                        <p>一共经过了{this.state.count}秒</p>
+                        <Submessage count={this.state.count}></Submessage>
+                    </div>
+                )
+
+            }
+        })
+        var Submessage = React.createClass({
+            mixins:[stateRecordMixin],
+            getInitialState:function(){
+                console.log('子组件getInitialState');
+                return {
+                    count:0,
+                }
+            },
+            getDefaultProps:function(){
+                console.log('子组件getDefaultProps');
+            },
+            componentWillMount:function(){
+                // 插入真实dom前执行
+                console.log('子组件componentWillMount');
+            },
+            componentDidMount:function(){
+                //插入真实dom后执行
+                console.log('子组件componentDidMount');
+            },
+            componentWillReceiveProps:function(nextProp){
+                console.log('子组件componentWillReceiveProps');
+                this.setState({
+                    count: this.props.count *2,
+                })
+            },
+            shouldComponentUpdate:function(nextProp,nextState){
+                console.log('子组件shouldComponentUpdate');
+                return true;
+            },
+            componentWillUpdate:function(){
+                console.log('子组件componentWillUpdate');
+            },
+            componentDidUpdate:function(){
+                console.log('子组件componentDidUpdate');
+            },
+
+            render:function(){
+                console.log('子组件render');
+                return (
+                    <h3>当前计数是：{this.state.count}</h3>
+                )
+            }
+        });
+
+        var clickDom=ReactDOM.render(<ClickClass></ClickClass>,document.getElementById('app'));
+
+// 方法执行顺序
+// getDefaultProps
+// 子组件getDefaultProps
+// getInitialState
+// mix componentWillMount
+// componentWillMount
+// render
+// 子组件getInitialState
+// 子组件componentWillMount
+// 子组件componentDidMount
+// mix  componentDidMount
+// mcomponentDidMount
+
+    </script>
+</body>
+</html>
