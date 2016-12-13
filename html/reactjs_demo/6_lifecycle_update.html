@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件生命周期(更新)</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="bower_components\react\react.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+
+    <script type="text/babel">
+        var ClickClass=React.createClass({
+            getInitialState:function(){
+                // console.log('getInitialState');
+                return {
+                    count:0,
+                }
+            },
+            getDefaultProps:function(){
+                // console.log('getDefaultProps');
+            },
+            shouldComponentUpdate:function(nextProps,nextState){
+                //更新前判断是否继续执行接下去的方法 componentWillUpdate componentDidUpdate render
+                //true 允许  false 不允许 继续执行
+                console.log('shouldComponentUpdate');
+                console.dir(this.state);
+                console.dir(nextState);
+                if(nextState.count>5) return false;
+                return true;
+            },
+            componentWillUpdate:function(){
+                console.log('componentWillUpdate');
+            },
+            componentDidUpdate:function(){
+                console.log('componentDidUpdate');
+            },
+            handle:function() {
+                var self=this;
+                self.setState({
+                    count:self.state.count+=1,
+                })
+            },
+            render:function(){
+                console.log('render');
+                return (
+                    <div>
+                        <button onClick={this.handle}>点击</button>
+                        <p>一共点击了{this.state.count}次</p>
+                    </div>
+                )
+
+            }
+        })
+
+        var clickDom=ReactDOM.render(<ClickClass></ClickClass>,document.getElementById('app'));
+        //  console.dir(clickDom);
+
+// 方法执行顺序
+ // getDefaultProps
+ // getInitialState
+ // componentWillMount
+ // render
+ // componentDidMount
+    </script>
+</body>
+</html>

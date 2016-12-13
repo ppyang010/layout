@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件生命周期</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="bower_components\react\react.js"></script>
+    <script src="bower_components\react\react-dom.js"></script>
+    <!-- <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script> -->
+    <script src="babel_browser.min.js"></script>
+
+    <script type="text/babel">
+        var ClickClass=React.createClass({
+            getInitialState:function(){
+                console.log('getInitialState');
+                return {
+                    count:0,
+                }
+            },
+            getDefaultProps:function(){
+                console.log('getDefaultProps');
+            },
+
+            componentWillMount:function(){
+                // 插入真实dom后执行
+                console.log('componentWillMount');
+                console.log(ReactDOM.findDOMNode(this));//获取真实dom
+                var self=this;
+                self.timer=setInterval(function(){
+                    self.setState({
+                        count:self.state.count+=1,
+                    })
+
+                },1000)
+            },
+            componentDidMount:function(){
+                //插入真实dom后执行
+                console.log('componentDidMount');
+                console.log(ReactDOM.findDOMNode(this));//获取真实dom
+            },
+            componentWillUnmount:function(){
+                // 移除真实dom前执行
+                console.log('componentWillUnmount');
+                alert('componentWillUnmount');
+                clearInterval(this.timer);//清楚定时器
+                //setState 必须是在Mounting 或mounted 状态下才能使用
+                //用于移除一些事件或方法
+            },
+            handle:function() {
+                ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+            },
+            render:function(){
+                console.log('render');
+                return (
+                    <div>
+                        <button onClick={this.handle}>卸载</button>
+                        <p>一共经过了{this.state.count}秒</p>
+                    </div>
+                )
+
+            }
+        })
+
+        var clickDom=ReactDOM.render(<ClickClass></ClickClass>,document.getElementById('app'));
+         console.dir(clickDom);
+
+// 方法执行顺序
+ // getDefaultProps
+ // getInitialState
+ // componentWillMount
+ // render
+ // componentDidMount
+    </script>
+</body>
+</html>
