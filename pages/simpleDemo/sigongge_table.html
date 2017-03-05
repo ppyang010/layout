@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全等四宫格_table</title>
+</head>
+<style>
+/*方案2 table  等分等高*/
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.parent{
+  width: 100%;
+  height: 100%;
+  display: table;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+.row{
+  display: table-cell;
+}
+.colume{
+  height: 50%;
+  background-color: red;
+  padding-top: 10px;
+  padding-left: 10px;
+  background-clip:content-box;
+  box-sizing: border-box;
+
+}
+
+</style>
+<body>
+<div class="parent">
+  <div class="row">
+    <div class="colume"></div>
+    <div class="colume"></div>
+  </div>
+  <div class="row">
+    <div class="colume"></div>
+    <div class="colume"></div>
+  </div>
+</div>
+
+</body>
+</html>
